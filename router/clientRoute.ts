@@ -5,10 +5,12 @@ import {
   loginValidation,
 } from "../middlewares/validations/client/clientValidation";
 
-import { register } from "../controller/client/clientAuth";
+import { getAll, register } from "../controller/client/clientAuth";
 
 const clientAuthRouter = Router();
 
 clientAuthRouter.route("/signup").post(registerValidation, register);
+// clientAuthRouter.route("/login").post(loginValidation, login);
+clientAuthRouter.route("/").get(getAll);
 
 export default clientAuthRouter;
