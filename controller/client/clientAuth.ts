@@ -45,3 +45,20 @@ export const register = asyncHandler(
     });
   }
 );
+
+//get all
+
+export const getAll = asyncHandler(
+  async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response> => {
+    const clients = await clientModel.find();
+
+    return res.status(HttpCodes.CREATED).json({
+      message: "gotten all users successfully",
+      data: clients,
+    });
+  }
+);
