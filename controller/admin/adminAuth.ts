@@ -38,7 +38,7 @@ export const login = asyncHandler(
     if (!admin) {
       next(
         new AppError({
-          message: "unable to login user",
+          message: "unable to login admin",
           httpcode: HttpCodes.BAD_REQUEST,
           name: AppError.name,
         })
@@ -72,7 +72,7 @@ export const register = asyncHandler(
     if (!user) {
       next(
         new AppError({
-          message: "unable to register user",
+          message: "unable to register admin",
           httpcode: HttpCodes.BAD_REQUEST,
           name: AppError.name,
         })
