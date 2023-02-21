@@ -9,7 +9,7 @@ import { AppError, HttpCodes } from "../../utils/appError";
 
 //get  admin
 
-export const getAll = asyncHandler(
+export const getAllAdmin = asyncHandler(
   async (
     req: Request,
     res: Response,
@@ -26,7 +26,7 @@ export const getAll = asyncHandler(
 
 //login user
 
-export const login = asyncHandler(
+export const adminLogin = asyncHandler(
   async (
     req: Request,
     res: Response,
@@ -52,7 +52,7 @@ export const login = asyncHandler(
   }
 );
 
-export const register = asyncHandler(
+export const adminRegister = asyncHandler(
   async (
     req: Request<{}, {}, adminDetails>,
     res: Response,
