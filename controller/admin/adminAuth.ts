@@ -4,7 +4,7 @@ import AdminModel from "../../model/agentmodel";
 import bcrypt from "bcrypt";
 import { asyncHandler } from "../../utils/asyncHandler";
 import { NextFunction, Request, Response } from "express";
-import { clientDetails } from "../../model/allInterfaces";
+import { adminDetails, clientDetails } from "../../model/allInterfaces";
 import { AppError, HttpCodes } from "../../utils/appError";
 
 //get  admin
@@ -46,8 +46,42 @@ export const login = asyncHandler(
     }
 
     return res.status(HttpCodes.OK).json({
-      message: "user successfully logged in",
+      message: "admin successfully logged in",
       data: admin,
+    });
+  }
+);
+
+export const register = asyncHandler(
+  async (
+    req: Request<{}, {}, adminDetails>,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response> => {
+    const { name, email, password } = req.body;
+
+    const Salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, Salt);
+
+    const user = await AdminModel.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    if (!user) {
+      next(
+        new AppError({
+          message: "unable to register user",
+          httpcode: HttpCodes.BAD_REQUEST,
+          name: AppError.name,
+        })
+      );
+    }
+
+    return res.status(HttpCodes.CREATED).json({
+      message: " created  an admin successfully",
+      data: user,
     });
   }
 );
