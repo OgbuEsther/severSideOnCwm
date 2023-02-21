@@ -23,3 +23,31 @@ export const getAll = asyncHandler(
     });
   }
 );
+
+//login user
+
+export const login = asyncHandler(
+  async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response> => {
+    const { email } = req.body;
+    const admin = await AdminModel.findOne({ email });
+
+    if (!admin) {
+      next(
+        new AppError({
+          message: "unable to login user",
+          httpcode: HttpCodes.BAD_REQUEST,
+          name: AppError.name,
+        })
+      );
+    }
+
+    return res.status(HttpCodes.OK).json({
+      message: "user successfully logged in",
+      data: admin,
+    });
+  }
+);
