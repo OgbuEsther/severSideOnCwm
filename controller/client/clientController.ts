@@ -5,7 +5,10 @@ import { client } from "../../model/client/clientDashBoard";
 import clientModel from "../../model/client/clientModel";
 
 //create client dashboard
-export const newClientDashboard = async (req: Request, res: Response) => {
+export const newClientDashboard = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
   try {
     const { paymentLog, message, bills, schedule, paymentStatus } = req.body;
 
@@ -17,6 +20,15 @@ export const newClientDashboard = async (req: Request, res: Response) => {
         bills,
         schedule,
         paymentStatus,
+      });
+
+      return res.status(201).json({
+        message: "Success",
+        data: clientDashBoard,
+      });
+    } else {
+      return res.status(400).json({
+        message: "user not found",
       });
     }
   } catch (error) {
