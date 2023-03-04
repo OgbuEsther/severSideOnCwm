@@ -11,8 +11,9 @@ export interface clientDetails {
 export interface clientDashBoard {
   message: {}[];
   paymentLog: {}[];
-  bills: string;
+  bills: [];
   schedule: string;
+  paymentStatus: boolean;
 }
 
 export interface adminDetails {
