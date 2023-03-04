@@ -13,4 +13,6 @@ const paymentSchema = new Schema<paymentLogData>({
   },
 });
 
-const paymentModel = model;
+const paymentModel = model<payment>("allPayments", paymentSchema);
+
+export default paymentModel;
