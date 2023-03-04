@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { adminDetails } from "./allInterfaces";
+import { adminDetails } from "../allInterfaces";
 
 interface Admin extends adminDetails, mongoose.Document {}
 
