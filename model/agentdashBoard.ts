@@ -28,6 +28,9 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
   { timestamps: true }
 );
 
-const clientDashBoardModel = mongoose.model("clientDashBoards", clientSchema);
+const clientDashBoardModel = mongoose.model<client>(
+  "clientDashBoards",
+  clientSchema
+);
 
 export default clientDashBoardModel;
