@@ -1,4 +1,5 @@
 import clientModel from "../../model/client/clientModel";
+import jwt, { Secret } from "jsonwebtoken";
 
 import bcrypt from "bcrypt";
 import { asyncHandler } from "../../utils/asyncHandler";
@@ -111,10 +112,14 @@ export const login = asyncHandler(
         })
       );
     }
+    const secret: Secret = "letsblowbubblesandfightcrimes";
 
     return res.status(HttpCodes.OK).json({
       message: "user successfully logged in",
       data: user,
+      token: jwt.sign({ _id: user?._id, email: user?.email }, secret, {
+        expiresIn: "1h",
+      }),
     });
   }
 );

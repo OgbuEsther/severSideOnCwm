@@ -15,7 +15,7 @@ import {
 const clientAuthRouter = Router();
 
 clientAuthRouter.route("/signup").post(signUp);
-clientAuthRouter.route("/login").post(loginValidation, login);
+clientAuthRouter.route("/login").post(login);
 clientAuthRouter.route("/").get(getAll);
 
 export default clientAuthRouter;

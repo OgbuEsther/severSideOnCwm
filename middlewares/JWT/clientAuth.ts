@@ -2,7 +2,7 @@ import jwt, { Secret, VerifyErrors } from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { AppError, HttpCodes } from "../../utils/appError";
 import { secret } from "./generateToken";
-import clientModel from "../../model/clientModel";
+import clientModel from "../../model/client/clientModel";
 import { clientDetails } from "../../model/allInterfaces";
 
 export const clientAuth = (req: Request, res: Response, next: NextFunction) => {
