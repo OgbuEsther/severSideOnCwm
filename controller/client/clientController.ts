@@ -35,3 +35,20 @@ export const newClientDashboard = async (
     });
   }
 };
+
+//get all dashboards
+
+export const getAllDashboards = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  try {
+    const dashboards = await clientDashBoardModel.find();
+    return res.status(200).json(dashboards);
+  } catch (error) {
+    return res.status(400).json({
+      message: "an error occurred",
+      data: error,
+    });
+  }
+};
