@@ -1,4 +1,4 @@
-import clientModel from "../../model/clientModel";
+import clientModel from "../../model/client/clientModel";
 
 import bcrypt from "bcrypt";
 import { asyncHandler } from "../../utils/asyncHandler";

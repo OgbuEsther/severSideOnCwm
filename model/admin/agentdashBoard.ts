@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { clientDashBoard } from "./allInterfaces";
+import { clientDashBoard } from "../allInterfaces";
 
 interface client extends clientDashBoard, mongoose.Document {}
 
