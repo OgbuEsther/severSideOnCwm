@@ -52,3 +52,17 @@ export const getAllDashboards = async (
     });
   }
 };
+export const getOneDashboard = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  try {
+    const dashboard = await clientDashBoardModel.findById(req.params.id);
+    return res.status(200).json(dashboard);
+  } catch (error) {
+    return res.status(400).json({
+      message: "an error occurred",
+      data: error,
+    });
+  }
+};
