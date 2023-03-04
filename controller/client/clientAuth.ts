@@ -46,6 +46,35 @@ export const register = asyncHandler(
   }
 );
 
+export const signUp = async (req: Request, res: Response) => {
+  try {
+    const { name, email, password, phoneNumber, clientType, address } =
+      req.body;
+
+    const Salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, Salt);
+
+    const user = await clientModel.create({
+      name,
+      email,
+      password: hashedPassword,
+      phoneNumber,
+      clientType,
+      address,
+    });
+
+    return res.status(200).json({
+      message: "created a user successfully",
+      data: user,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      message: "an error occurred",
+      data: error,
+    });
+  }
+};
+
 //get all
 
 export const getAll = asyncHandler(
