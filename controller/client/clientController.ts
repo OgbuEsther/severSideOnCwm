@@ -52,6 +52,8 @@ export const getAllDashboards = async (
     });
   }
 };
+
+//get one
 export const getOneDashboard = async (
   req: Request,
   res: Response
