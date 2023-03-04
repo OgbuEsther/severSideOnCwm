@@ -29,7 +29,7 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
 );
 
 const clientDashBoardModel = mongoose.model<client>(
-  "clientDashBoards",
+  "clientDashboard",
   clientSchema
 );
 

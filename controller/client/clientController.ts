@@ -10,14 +10,11 @@ export const newClientDashboard = async (
   res: Response
 ): Promise<Response> => {
   try {
-    const { paymentLog, message, bills, schedule, paymentStatus } = req.body;
+    const { schedule, paymentStatus } = req.body;
 
     const getUser = await clientModel.findById(req.params.userId);
     if (getUser) {
       const clientDashBoard = await clientDashBoardModel.create({
-        message,
-        paymentLog,
-        bills,
         schedule,
         paymentStatus,
       });
