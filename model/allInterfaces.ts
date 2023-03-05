@@ -9,11 +9,12 @@ export interface clientDetails {
 }
 
 export interface clientDashBoard {
-  message: {}[];
-  paymentLog: {}[];
+  message: {}[]; //sender , date and message ,
+  paymentLog: {}[]; //amount , date , payment status
   bills: [];
-  schedule: string;
   paymentStatus: boolean;
+  notification: []; //pushing the message model inside
+  contact_us: {}[]; //title and details of the message .....this will be a form
 }
 
 export interface adminDetails {
