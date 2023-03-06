@@ -5,11 +5,15 @@ interface messages extends messagedata, mongoose.Document {}
 
 export const messageSchema = new Schema<messagedata>(
   {
-    notifyAll: {
+    date: {
       type: String,
     },
-    notifyOne: {
+    sender: {
       type: String,
+    },
+    desc: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
