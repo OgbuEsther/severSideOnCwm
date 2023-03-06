@@ -1,9 +1,11 @@
 export interface messagedata {
-  notifyAll: string;
-  notifyOne: string;
+  sender: string;
+  date: string;
+  details: string;
 }
 
 export interface paymentLogData {
-  message: string;
-  transactionId: string;
+  amount: number;
+  date: string;
+  paymentStatus: boolean;
 }
