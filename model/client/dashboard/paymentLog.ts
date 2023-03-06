@@ -5,11 +5,14 @@ import { paymentLogData } from "./clientDashboardinnterafaces";
 export interface payment extends paymentLogData, Document {}
 
 const paymentSchema = new Schema<paymentLogData>({
-  message: {
+  amount: {
+    type: Number,
+  },
+  date: {
     type: String,
   },
-  transactionId: {
-    type: String,
+  paymentStatus: {
+    type: Boolean,
   },
 });
 
