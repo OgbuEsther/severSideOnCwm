@@ -18,12 +18,6 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
       },
     ],
     bills: [],
-    schedule: {
-      type: String,
-    },
-    paymentStatus: {
-      type: Boolean,
-    },
   },
   { timestamps: true }
 );
