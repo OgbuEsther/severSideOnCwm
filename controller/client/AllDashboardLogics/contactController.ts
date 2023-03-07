@@ -5,7 +5,7 @@ import contactModel from "../../../model/client/dashboard/contact_us";
 //create message
 export const newMsg = async (
   req: Request,
-  res: Resposne
+  res: Response
 ): Promise<Response> => {
   try {
     const { title, detail } = req.body;
