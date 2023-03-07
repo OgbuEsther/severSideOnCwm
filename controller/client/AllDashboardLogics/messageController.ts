@@ -17,6 +17,10 @@ export const sendMessage = async (
     //getting the time and date
     const getDate = new Date().toDateString();
 
+    //getting client dashboard
+    const clientDashBoard = await clientDashBoardModel.findById(
+      req.params.clientId
+    );
     //getting the user details
 
     const getUser = await clientModel.findById(req.params.userId);
@@ -32,6 +36,9 @@ export const sendMessage = async (
         desc,
       });
 
+      await clientDashBoardModel.findByIdAndUpdate(clientDashBoard?._id, {
+        $push: { notification: newMsg._id },
+      });
       return res.status(201).json({
         message: "message successfully sent",
         data: newMsg,
