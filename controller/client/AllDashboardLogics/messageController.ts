@@ -14,6 +14,11 @@ export const sendMessage = async (
   try {
     const { sender, date, desc } = req.body;
 
+    //getting dashboard deatils
+    const getDashboard = await clientDashBoardModel.findById(
+      req.params.dashboard
+    );
+
     //getting the time and date
     const getDate = new Date().toDateString();
 
@@ -31,6 +36,10 @@ export const sendMessage = async (
         date: getDate,
         desc,
       });
+
+      await getDashboard?.message.push(
+        new mongoose.Types.ObjectId(newMsg?._id)
+      );
 
       await clientModel.findByIdAndUpdate(getUser?._id, {
         $push: { notification: newMsg._id },
