@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import mongoose from "mongoose";
 import AdminModel from "../../../model/admin/agentmodel";
+import clientDashBoardModel from "../../../model/client/clientDashBoard";
 import clientModel from "../../../model/client/clientModel";
 import messageModel from "../../../model/client/dashboard/message";
 
@@ -15,6 +16,7 @@ export const sendMessage = async (
 
     //getting the time and date
     const getDate = new Date().toDateString();
+
     //getting the user details
 
     const getUser = await clientModel.findById(req.params.userId);
@@ -46,3 +48,5 @@ export const sendMessage = async (
     });
   }
 };
+
+//get all messsage sent by a user

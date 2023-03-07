@@ -9,7 +9,7 @@ export interface clientDetails {
 }
 
 export interface clientDashBoard {
-  message: {}[]; //sender , date and message ,
+  message: {}[]; //sender , date and desc ,
   paymentLog: {}[]; //amount , date , payment status
   bills: [];
   notification: []; //pushing the message model inside
