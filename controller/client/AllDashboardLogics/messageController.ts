@@ -76,8 +76,13 @@ export const deleteMessage = async (req: Request, res: Response) => {
     const getDashboard = await clientDashBoardModel.findById(
       req.params.dashboard
     );
-    await getDashboard?.message.push(new mongoose.Types.ObjectId(remove?._id));
+    await getDashboard?.message.pull(new mongoose.Types.ObjectId(remove?._id));
     getDashboard?.save();
+
+    return res.status(204).json({
+      message: "message successfully deleted",
+      data: remove,
+    });
   } catch (error) {
     return res.status(400).json({
       message: "bad request , unable to delete message",
