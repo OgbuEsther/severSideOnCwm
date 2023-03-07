@@ -5,36 +5,37 @@ import { client } from "../../model/client/clientDashBoard";
 import clientModel from "../../model/client/clientModel";
 
 //create client dashboard
-export const newClientDashboard = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
-  try {
-    const { schedule, paymentStatus } = req.body;
+// export const newClientDashboard = async (
+//   req: Request,
+//   res: Response
+// ): Promise<Response> => {
+//   try {
+//     const { schedule, paymentStatus } = req.body;
 
-    const getUser = await clientModel.findById(req.params.userId);
-    if (getUser) {
-      const clientDashBoard = await clientDashBoardModel.create({
-        schedule,
-        paymentStatus,
-      });
+//     const getUser = await clientModel.findById(req.params.userId);
+//     if (getUser) {
+//       const clientDashBoard = await clientDashBoardModel.create({
+//         schedule,
+//         paymentStatus,
+//         _id: getUser?._id,
+//       });
 
-      return res.status(201).json({
-        message: "Success",
-        data: clientDashBoard,
-      });
-    } else {
-      return res.status(400).json({
-        message: "user not found",
-      });
-    }
-  } catch (error) {
-    return res.status(400).json({
-      message: "an error occurred",
-      data: error,
-    });
-  }
-};
+//       return res.status(201).json({
+//         message: "Success",
+//         data: clientDashBoard,
+//       });
+//     } else {
+//       return res.status(400).json({
+//         message: "user not found",
+//       });
+//     }
+//   } catch (error) {
+//     return res.status(400).json({
+//       message: "an error occurred",
+//       data: error,
+//     });
+//   }
+// };
 
 //get all dashboards
 

@@ -6,6 +6,8 @@ import { asyncHandler } from "../../utils/asyncHandler";
 import { NextFunction, Request, Response } from "express";
 import { clientDetails } from "../../model/allInterfaces";
 import { AppError, HttpCodes } from "../../utils/appError";
+import clientDashBoardModel from "../../model/client/clientDashBoard";
+import mongoose from "mongoose";
 
 //register
 
@@ -63,6 +65,13 @@ export const signUp = async (req: Request, res: Response) => {
       clientType,
       address,
     });
+
+    const createDashboard = await clientDashBoardModel.create({
+      _id: user?._id,
+    });
+
+    user?.dashBoard.push(new mongoose.Types.ObjectId(createDashboard?._id));
+    user?.save();
 
     return res.status(200).json({
       message: "created a user successfully",
