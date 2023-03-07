@@ -14,9 +14,6 @@ clientDashBoardRoutes.get("/:id", getOneDashboard);
 
 //messages
 //send messages to admin
-clientDashBoardRoutes.post(
-  "/messages/:userId/:adminId/:dashboard",
-  sendMessage
-);
+clientDashBoardRoutes.post("/messages/:userId/:adminId", sendMessage);
 
 export default clientDashBoardRoutes;

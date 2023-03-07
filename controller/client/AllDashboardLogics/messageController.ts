@@ -40,6 +40,7 @@ export const sendMessage = async (
       await getDashboard?.message.push(
         new mongoose.Types.ObjectId(newMsg?._id)
       );
+      getDashboard?.save();
 
       await clientModel.findByIdAndUpdate(getUser?._id, {
         $push: { notification: newMsg._id },

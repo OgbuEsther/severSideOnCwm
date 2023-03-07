@@ -28,6 +28,7 @@ const clientSchema = new Schema<clientDetails>({
   clientType: {
     type: Boolean,
   },
+  notification: [],
   dashBoard: [
     {
       type: mongoose.Schema.Types.ObjectId,
