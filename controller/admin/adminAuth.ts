@@ -1,6 +1,5 @@
-import clientModel from "../../model/clientModel";
-import AdminModel from "../../model/agentmodel";
-
+import clientModel from "../../model/client/clientModel";
+import AdminModel from "../../model/admin/agentmodel";
 import bcrypt from "bcrypt";
 import { asyncHandler } from "../../utils/asyncHandler";
 import { NextFunction, Request, Response } from "express";

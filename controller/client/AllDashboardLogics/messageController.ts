@@ -31,12 +31,15 @@ export const sendMessage = async (
 
     if (getUser && getAdmin) {
       const newMsg = await messageModel.create({
-        sender,
+        sender: getUser?.name,
         date: getDate,
         desc,
       });
 
       await clientDashBoardModel.findByIdAndUpdate(clientDashBoard?._id, {
+        $push: { notification: newMsg._id },
+      });
+      await AdminModel.findByIdAndUpdate(getAdmin._id, {
         $push: { notification: newMsg._id },
       });
       return res.status(201).json({

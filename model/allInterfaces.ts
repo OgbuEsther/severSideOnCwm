@@ -21,6 +21,7 @@ export interface adminDetails {
   email: string;
   password: string;
   dashBoard: {}[];
+  notification: [];
 }
 
 export interface adminDashboard {
