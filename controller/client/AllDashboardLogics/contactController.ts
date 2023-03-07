@@ -15,7 +15,7 @@ export const newMsg = async (
       detail,
     });
     return res.status(201).json({
-      message: "sent ",
+      message: "sent",
       data: msg,
     });
   } catch (error) {
