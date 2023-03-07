@@ -6,13 +6,13 @@ export interface clientDetails {
   phoneNumber: string;
   dashBoard: {}[];
   password: string;
+  notification: []; //pushing the message model inside
 }
 
 export interface clientDashBoard {
   message: {}[]; //sender , date and desc ,
   paymentLog: {}[]; //amount , date , payment status
   bills: [];
-  notification: []; //pushing the message model inside
   contact_us: {}[]; //title and details of the message .....this will be a form
 }
 

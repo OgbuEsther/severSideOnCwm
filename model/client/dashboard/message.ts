@@ -19,6 +19,6 @@ export const messageSchema = new Schema<messagedata>(
   { timestamps: true }
 );
 
-const messageModel = model<messages>("notifications", messageSchema);
+const messageModel = model<messages>("messages", messageSchema);
 
 export default messageModel;

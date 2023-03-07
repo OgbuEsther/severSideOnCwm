@@ -18,7 +18,7 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
       },
     ],
     bills: [],
-    notification: [],
+
     contact_us: [
       {
         type: mongoose.Schema.Types.ObjectId,

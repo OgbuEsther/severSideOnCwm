@@ -17,10 +17,6 @@ export const sendMessage = async (
     //getting the time and date
     const getDate = new Date().toDateString();
 
-    //getting client dashboard
-    const clientDashBoard = await clientDashBoardModel.findById(
-      req.params.clientId
-    );
     //getting the user details
 
     const getUser = await clientModel.findById(req.params.userId);
@@ -36,7 +32,7 @@ export const sendMessage = async (
         desc,
       });
 
-      await clientDashBoardModel.findByIdAndUpdate(clientDashBoard?._id, {
+      await clientModel.findByIdAndUpdate(getUser?._id, {
         $push: { notification: newMsg._id },
       });
       await AdminModel.findByIdAndUpdate(getAdmin._id, {
