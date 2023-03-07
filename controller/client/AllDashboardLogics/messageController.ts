@@ -12,6 +12,9 @@ export const sendMessage = async (
 ): Promise<Response> => {
   try {
     const { sender, date, desc } = req.body;
+
+    //getting the time and date
+    const getDate = new Date().toDateString();
     //getting the user details
 
     const getUser = await clientModel.findById(req.params.userId);
@@ -23,8 +26,17 @@ export const sendMessage = async (
     if (getUser && getAdmin) {
       const newMsg = await messageModel.create({
         sender,
-        date,
+        date: getDate,
         desc,
+      });
+
+      return res.status(201).json({
+        message: "message successfully sent",
+        data: newMsg,
+      });
+    } else {
+      return res.status(404).json({
+        message: "User or admin not found",
       });
     }
   } catch (error) {
