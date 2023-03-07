@@ -11,12 +11,12 @@ import {
   getAllAdmin,
 } from "../controller/admin/adminAuth";
 
-const adminAuthRouter = Router();
+const adminAuthRoutes = Router();
 
-adminAuthRouter.route("/admin/signin").post(adminLoginvalidation, adminLogin);
-adminAuthRouter
+adminAuthRoutes.route("/admin/signin").post(adminLoginvalidation, adminLogin);
+adminAuthRoutes
   .route("/admin/register")
   .post(adminRegistervalidation, adminRegister);
-adminAuthRouter.route("/admin/").get(getAllAdmin);
+adminAuthRoutes.route("/admin/").get(getAllAdmin);
 
-export default adminAuthRouter;
+export default adminAuthRoutes;
