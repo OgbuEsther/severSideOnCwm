@@ -19,6 +19,7 @@ export interface clientDashBoard {
 export interface adminDetails {
   name: string;
   email: string;
+  isAdmin: boolean;
   password: string;
   dashBoard: {}[];
   notification: [];
@@ -28,8 +29,6 @@ export interface adminDashboard {
   message: {}[];
   paymentLog: {}[];
   approvals: boolean;
-  viewArea: string;
-  expectedPayment: string;
 }
 
 export interface IAuthUser extends Request {
