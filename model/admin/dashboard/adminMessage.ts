@@ -19,3 +19,5 @@ const adminMessageModel = mongoose.model<IAdminMessage>(
   "adminMessageCollection",
   adminMessageSchema
 );
+
+export default adminMessageModel;
