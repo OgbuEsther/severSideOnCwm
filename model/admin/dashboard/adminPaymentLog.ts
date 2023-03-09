@@ -14,3 +14,9 @@ const adminPaymentSchema = new mongoose.Schema<adminPayment>({
     type: String,
   },
 });
+
+const adminPaymentModel = mongoose.model(
+  "adminpaymentLogCollection",
+  adminPaymentSchema
+);
+export default adminPaymentModel;
