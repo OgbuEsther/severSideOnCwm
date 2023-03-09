@@ -109,8 +109,8 @@ export const login = asyncHandler(
     res: Response,
     next: NextFunction
   ): Promise<Response> => {
-    const { email } = req.body;
-    const user = await clientModel.findOne({ email });
+    const { email, password } = req.body;
+    const user = await clientModel.findOne({ email, password });
 
     if (!user) {
       next(
