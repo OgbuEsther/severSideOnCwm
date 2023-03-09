@@ -28,7 +28,6 @@ export interface adminDetails {
 export interface adminDashboard {
   message: {}[];
   paymentLog: {}[];
-  approvals: boolean;
 }
 
 export interface IAuthUser extends Request {

@@ -3,3 +3,9 @@ export interface adminMessage {
   date: string;
   description: string;
 }
+
+export interface adminPayment {
+  amount: number;
+  date: string;
+  viewSender: string;
+}
