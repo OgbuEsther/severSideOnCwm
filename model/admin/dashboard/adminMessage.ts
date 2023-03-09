@@ -15,4 +15,7 @@ const adminMessageSchema = new mongoose.Schema<adminMessage>({
   },
 });
 
-const adminMessageModel = mongoose.model<IAdminMessage>("", adminMessageSchema);
+const adminMessageModel = mongoose.model<IAdminMessage>(
+  "adminMessageCollection",
+  adminMessageSchema
+);
