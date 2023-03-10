@@ -5,6 +5,7 @@ import { asyncHandler } from "../../utils/asyncHandler";
 import { NextFunction, Request, Response } from "express";
 import { adminDetails, clientDetails } from "../../model/allInterfaces";
 import { AppError, HttpCodes } from "../../utils/appError";
+import mongoose from "mongoose";
 
 //get  admin
 
@@ -62,13 +63,21 @@ export const adminRegister = asyncHandler(
     const Salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, Salt);
 
-    const user = await AdminModel.create({
+    const admin = await AdminModel.create({
       name,
       email,
       password: hashedPassword,
     });
 
-    if (!user) {
+    const createAdminDashboard = await AdminModel.create({
+      _id: admin._id,
+    });
+
+    admin?.dashBoard?.push(
+      new mongoose.Types.ObjectId(createAdminDashboard?._id)
+    );
+
+    if (!admin) {
       next(
         new AppError({
           message: "unable to register admin",
@@ -80,7 +89,7 @@ export const adminRegister = asyncHandler(
 
     return res.status(HttpCodes.CREATED).json({
       message: " created  an admin successfully",
-      data: user,
+      data: admin,
     });
   }
 );
