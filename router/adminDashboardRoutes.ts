@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { adminToOneUser } from "../controller/admin/dashboard/adminMsgController";
+import {
+  adminToOneUser,
+  populateMsg,
+} from "../controller/admin/dashboard/adminMsgController";
 
 const adminDashboardRoutes = Router();
 
@@ -8,5 +11,7 @@ adminDashboardRoutes.post(
   "/adminmsg/:userId/:adminId/:adminDashboard",
   adminToOneUser
 );
+
+adminDashboardRoutes.get("/messages/:dashBoardId", populateMsg);
 
 export default adminDashboardRoutes;
