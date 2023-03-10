@@ -6,6 +6,7 @@ import { NextFunction, Request, Response } from "express";
 import { adminDetails, clientDetails } from "../../model/allInterfaces";
 import { AppError, HttpCodes } from "../../utils/appError";
 import mongoose from "mongoose";
+import adminDashboardModel from "../../model/admin/agentdashBoard";
 
 //get  admin
 
@@ -52,12 +53,8 @@ export const adminLogin = asyncHandler(
   }
 );
 
-export const adminRegister = asyncHandler(
-  async (
-    req: Request<{}, {}, adminDetails>,
-    res: Response,
-    next: NextFunction
-  ): Promise<Response> => {
+export const adminRegister = async (req: Request, res: Response) => {
+  try {
     const { name, email, password } = req.body;
 
     const Salt = await bcrypt.genSalt(10);
@@ -69,27 +66,23 @@ export const adminRegister = asyncHandler(
       password: hashedPassword,
     });
 
-    const createAdminDashboard = await AdminModel.create({
-      _id: admin._id,
+    const createAdminDashboard = await adminDashboardModel.create({
+      _id: admin?._id,
     });
 
-    admin?.dashBoard?.push(
+    admin.dashBoard.push(
       new mongoose.Types.ObjectId(createAdminDashboard?._id)
     );
+    admin?.save();
 
-    if (!admin) {
-      next(
-        new AppError({
-          message: "unable to register admin",
-          httpcode: HttpCodes.BAD_REQUEST,
-          name: AppError.name,
-        })
-      );
-    }
-
-    return res.status(HttpCodes.CREATED).json({
-      message: " created  an admin successfully",
+    return res.status(200).json({
+      message: "created an admin successfully",
       data: admin,
     });
+  } catch (error) {
+    return res.status(400).json({
+      message: "an error occurred",
+      data: error,
+    });
   }
-);
+};

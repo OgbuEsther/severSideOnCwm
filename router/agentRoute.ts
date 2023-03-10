@@ -13,10 +13,8 @@ import {
 
 const adminAuthRoutes = Router();
 
-adminAuthRoutes.route("/admin/signin").post(adminLoginvalidation, adminLogin);
-adminAuthRoutes
-  .route("/admin/register")
-  .post(adminRegistervalidation, adminRegister);
+adminAuthRoutes.route("/admin/signin").post(adminLogin);
+adminAuthRoutes.route("/admin/register").post(adminRegister);
 adminAuthRoutes.route("/admin/").get(getAllAdmin);
 
 export default adminAuthRoutes;
