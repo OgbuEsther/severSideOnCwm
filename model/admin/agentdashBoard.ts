@@ -19,7 +19,7 @@ const adminDashboardSchema = new mongoose.Schema<adminDashboard>({
 });
 
 const adminDashboardModel = mongoose.model<IAdminDashboard>(
-  "adminDashboard",
+  "adminDashBoard",
   adminDashboardSchema
 );
 export default adminDashboardModel;

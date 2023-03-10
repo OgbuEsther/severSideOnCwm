@@ -29,6 +29,7 @@ export const adminToOneUser = async (
     //getting admin details
 
     const getAdmin = await AdminModel.findById(req.params.adminId);
+
     if (getAdmin && getUser) {
       const adminMsg = await adminMessageModel.create({
         sender: getAdmin?.name,
