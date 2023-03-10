@@ -42,9 +42,9 @@ export const sendMessage = async (
       );
       getDashboard?.save();
 
-      await clientModel.findByIdAndUpdate(getUser?._id, {
-        $push: { notification: newMsg._id },
-      });
+      // await clientModel.findByIdAndUpdate(getUser?._id, {
+      //   $push: { notification: newMsg._id },
+      // });
       await AdminModel.findByIdAndUpdate(getAdmin._id, {
         $push: { notification: newMsg._id },
       });

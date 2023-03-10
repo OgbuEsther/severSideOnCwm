@@ -12,7 +12,7 @@ export const adminToOneUser = async (
   res: Response
 ): Promise<Response> => {
   try {
-    const { sender, date, desc } = req.body;
+    const { sender, date, description } = req.body;
 
     //getting admin dashboard details
     const getDashboard = await adminDashboardModel.findById(
@@ -33,7 +33,7 @@ export const adminToOneUser = async (
       const adminMsg = await adminMessageModel.create({
         sender: getAdmin?.name,
         date: getDate,
-        desc,
+        description,
       });
 
       await getDashboard?.message.push(

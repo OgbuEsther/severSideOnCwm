@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import appConfig from "./app";
 import dbConfig from "./config/db";
-import adminAuthRoutes from "./router/agentRoute";
+import adminAuthRoutes from "./router/adminRoute";
 
 const PORT: number = 8000;
 
