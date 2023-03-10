@@ -89,4 +89,24 @@ export const deleteMessage = async (req: Request, res: Response) => {
   }
 };
 
-//
+//get all messages sent by a user
+
+export const getMessages = async (req: Request, res: Response) => {
+  try {
+    const getMessages = await clientDashBoardModel
+      .findById(req.params.dashBoardId)
+      .populate({
+        path: "message",
+      });
+
+    return res.status(200).json({
+      message: "messages successfully retrieved",
+      data: getMessages,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      message: "bad request , unable to get message",
+      data: error,
+    });
+  }
+};

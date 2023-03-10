@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { sendMessage } from "../controller/client/AllDashboardLogics/messageController";
+import {
+  getMessages,
+  sendMessage,
+} from "../controller/client/AllDashboardLogics/messageController";
 import {
   getAllDashboards,
   getOneDashboard,
@@ -18,5 +21,7 @@ clientDashBoardRoutes.post(
   "/messages/:userId/:adminId/:dashboard",
   sendMessage
 );
+
+clientDashBoardRoutes.get("/messages/:dashBoardId", getMessages);
 
 export default clientDashBoardRoutes;

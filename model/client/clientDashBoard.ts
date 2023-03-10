@@ -8,7 +8,7 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
     message: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "notifications",
+        ref: "messages",
       },
     ],
     paymentLog: [
