@@ -14,6 +14,11 @@ export const adminToOneUser = async (
   try {
     const { sender, date, desc } = req.body;
 
+    //getting admin dashboard details
+      const getDashboard = await adminDashboardModel.findById(
+      req.params.adminDashboard
+    );
+
     //get date
     const getDate = new Date().toDateString();
 
@@ -30,6 +35,8 @@ export const adminToOneUser = async (
         date: getDate,
         desc,
       });
+
+      await 
     }
   } catch (error) {
     return res.status(400).json({
