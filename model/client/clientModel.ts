@@ -37,6 +37,9 @@ const clientSchema = new Schema<clientDetails>(
       },
     ],
     notification: [],
+    location: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -7,7 +7,7 @@ export interface clientDetails {
   dashBoard: {}[];
   password: string;
   notification: []; //pushing the message model inside
-  //location : string
+  location: string;
 }
 
 export interface clientDashBoard {
@@ -30,7 +30,6 @@ export interface adminDashboard {
   message: {}[];
   paymentLog: {}[];
   //chart : {}[];
-  
 }
 
 export interface IAuthUser extends Request {
