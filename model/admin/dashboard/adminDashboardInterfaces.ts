@@ -9,3 +9,10 @@ export interface adminPayment {
   date: string;
   viewSender: string;
 }
+
+export interface adminBills {
+  receiverName: string;
+  address: string;
+  date: string;
+  amountIssued: number;
+}
