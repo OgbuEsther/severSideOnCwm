@@ -15,3 +15,10 @@ export interface contact_usData {
   title: string;
   detail: string;
 }
+
+export interface clientBills {
+  receiverName: string;
+  address: string;
+  date: string;
+  amountIssued: number;
+}

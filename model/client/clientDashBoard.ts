@@ -17,7 +17,12 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
         ref: "allPayments",
       },
     ],
-    bills: [],
+    bills: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Bills",
+      },
+    ],
 
     contact_us: [
       {
