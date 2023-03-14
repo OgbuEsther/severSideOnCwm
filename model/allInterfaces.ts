@@ -29,6 +29,7 @@ export interface adminDetails {
 export interface adminDashboard {
   message: {}[];
   paymentLog: {}[];
+  bills: {}[]; //reciever , date , amount , address
   //chart : {}[];
 }
 

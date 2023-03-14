@@ -16,6 +16,12 @@ const adminDashboardSchema = new mongoose.Schema<adminDashboard>({
       ref: "adminpaymentLogCollection",
     },
   ],
+  bills: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "adminBills",
+    },
+  ],
 });
 
 const adminDashboardModel = mongoose.model<IAdminDashboard>(

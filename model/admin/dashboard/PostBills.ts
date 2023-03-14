@@ -18,6 +18,6 @@ const AdminBillsSchema = new mongoose.Schema<adminBills>({
   },
 });
 
-const adminBillsModel = mongoose.model<bills>("Bills", AdminBillsSchema);
+const adminBillsModel = mongoose.model<bills>("adminBills", AdminBillsSchema);
 
 export default adminBillsModel;
