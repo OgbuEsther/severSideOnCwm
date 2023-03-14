@@ -30,6 +30,20 @@ export const createBills = async (
         date,
         amountIssued,
       });
+
+      getClientDashboard?.bills?.push(
+        new mongoose.Types.ObjectId(postBills?._id)
+      );
+      getClientDashboard?.save();
+
+      return res.status(200).json({
+        message: "bill sent successfully",
+        data: postBills,
+      });
+    } else {
+      return res.status(404).json({
+        message: "couldn't send bill",
+      });
     }
   } catch (error) {
     return res.status(400).json({
