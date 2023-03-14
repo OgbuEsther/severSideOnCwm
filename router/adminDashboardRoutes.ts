@@ -3,6 +3,7 @@ import {
   adminToOneUser,
   populateMsg,
 } from "../controller/admin/dashboard/adminMsgController";
+import { createBills } from "../controller/admin/dashboard/AdminPostBills";
 
 const adminDashboardRoutes = Router();
 
@@ -13,5 +14,10 @@ adminDashboardRoutes.post(
 );
 
 adminDashboardRoutes.get("/messages/:dashBoardId", populateMsg);
+
+adminDashboardRoutes.post(
+  "/createbills/:admindashBoardId/:clientDashBoardId",
+  createBills
+);
 
 export default adminDashboardRoutes;
