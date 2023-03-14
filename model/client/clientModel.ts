@@ -29,6 +29,9 @@ const clientSchema = new Schema<clientDetails>(
     clientType: {
       type: Boolean,
     },
+    address: {
+      type: String,
+    },
 
     dashBoard: [
       {

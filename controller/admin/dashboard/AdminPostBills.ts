@@ -4,13 +4,18 @@ import mongoose from "mongoose";
 import clientBillsModel from "../../../model/client/dashboard/GenBills";
 import adminDashboardModel from "../../../model/admin/agentdashBoard";
 import clientDashBoardModel from "../../../model/client/clientDashBoard";
+import clientModel from "../../../model/client/clientModel";
 
 export const createBills = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
   try {
-    const { receiverName, address, date, amountIssued } = req.body;
+    const { amountIssued } = req.body;
+
+    //creating date
+
+    const getDate = new Date().toDateString();
 
     //getting admin dashboard details
     const getAdminDashboard = await adminDashboardModel.findById(
@@ -22,12 +27,13 @@ export const createBills = async (
     const getClientDashboard = await clientDashBoardModel.findById(
       req.params.clientDashBoardId
     );
+    const getClient = await clientModel.findById(req.params.id);
 
     if (getAdminDashboard && getClientDashboard) {
       const postBills = await adminBillsModel.create({
-        receiverName,
-        address,
-        date,
+        receiverName: getClient?.name,
+        address: getClient?.address,
+        date: getDate,
         amountIssued,
       });
 
