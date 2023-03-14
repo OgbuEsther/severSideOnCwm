@@ -31,6 +31,7 @@ const adminSchema = new mongoose.Schema<adminDetails>(
       },
     ],
     notification: [],
+
     isAdmin: Boolean,
   },
   { timestamps: true }

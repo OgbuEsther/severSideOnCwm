@@ -72,7 +72,7 @@ export const loginClient = async (
 ): Promise<Response> => {
   try {
     const { email, password } = req.body;
-    const user = await clientModel.findOne({ email, password });
+    const user = await clientModel.findOne({ email });
     const secret: Secret = "letsblowbubblesandfightcrimes";
 
     return res.status(201).json({

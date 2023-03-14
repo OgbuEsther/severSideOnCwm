@@ -27,6 +27,8 @@ export const createBills = async (
     const getClientDashboard = await clientDashBoardModel.findById(
       req.params.clientDashBoardId
     );
+
+    //getting client details
     const getClient = await clientModel.findById(req.params.id);
 
     if (getAdminDashboard && getClientDashboard) {
