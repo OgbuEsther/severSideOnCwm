@@ -13,7 +13,7 @@ export interface clientDetails {
 export interface clientDashBoard {
   message: {}[]; //sender , date and desc ,
   paymentLog: {}[]; //amount , date , payment status
-  bills: {}[]; //reciever , date , amount , address
+  bills: []; //reciever , date , amount , address
   contact_us: {}[]; //title and details of the message .....this will be a form
 }
 

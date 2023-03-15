@@ -1,7 +1,7 @@
 import adminBillsModel from "../../../model/admin/dashboard/PostBills";
 import { Request, Response } from "express";
 import mongoose from "mongoose";
-import clientBillsModel from "../../../model/client/dashboard/GenBills";
+// import clientBillsModel from "../../../model/client/dashboard/GenBills";
 import adminDashboardModel from "../../../model/admin/agentdashBoard";
 import clientDashBoardModel from "../../../model/client/clientDashBoard";
 import clientModel from "../../../model/client/clientModel";
@@ -39,10 +39,14 @@ export const createBills = async (
         amountIssued,
       });
 
-      getClientDashboard?.bills?.push(
-        new mongoose.Types.ObjectId(postBills?._id)
-      );
-      getClientDashboard?.save();
+      // getClientDashboard?.bills?.push(
+      //   new mongoose.Types.ObjectId(postBills?._id)
+      // );
+      // getClientDashboard?.save();
+
+      await clientDashBoardModel.findByIdAndUpdate(getClientDashboard?._id, {
+        $push: { bills: postBills?._id },
+      });
 
       getAdminDashboard?.bills?.push(
         new mongoose.Types.ObjectId(postBills?._id)

@@ -18,10 +18,10 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
       },
     ],
     bills: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "clientBills",
-      },
+      // {
+      //   type: mongoose.Schema.Types.ObjectId,
+      //   ref: "clientBills",
+      // },
     ],
 
     contact_us: [

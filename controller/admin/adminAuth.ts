@@ -3,7 +3,7 @@ import AdminModel from "../../model/admin/agentmodel";
 import bcrypt from "bcrypt";
 import { asyncHandler } from "../../utils/asyncHandler";
 import { NextFunction, Request, Response } from "express";
-import { adminDetails, clientDetails } from "../../model/allInterfaces";
+// import { adminDetails, clientDetails } from "../../model/allInterfaces";
 import { AppError, HttpCodes } from "../../utils/appError";
 import mongoose from "mongoose";
 import adminDashboardModel from "../../model/admin/agentdashBoard";
