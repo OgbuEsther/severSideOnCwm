@@ -22,6 +22,6 @@ clientDashBoardRoutes.post(
   sendMessage
 );
 
-clientDashBoardRoutes.get("/messages/:dashBoardId", getMessages);
+clientDashBoardRoutes.get("/getclientmessage/:clientId", getMessages);
 
 export default clientDashBoardRoutes;

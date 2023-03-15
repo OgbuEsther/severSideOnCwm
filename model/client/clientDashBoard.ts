@@ -20,7 +20,7 @@ export const clientSchema = new mongoose.Schema<clientDashBoard>(
     bills: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Bills",
+        ref: "clientBills",
       },
     ],
 

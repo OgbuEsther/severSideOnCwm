@@ -16,7 +16,7 @@ adminDashboardRoutes.post(
 adminDashboardRoutes.get("/messages/:dashBoardId", populateMsg);
 
 adminDashboardRoutes.post(
-  "/createbills/:admindashBoardId/:clientDashBoardId/:id",
+  "/createbills/:clientDashBoardId/:admindashBoardId/:id",
   createBills
 );
 

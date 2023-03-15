@@ -3,17 +3,20 @@ import { adminPayment } from "./adminDashboardInterfaces";
 
 interface IAdminPayment extends adminPayment, mongoose.Document {}
 
-const adminPaymentSchema = new mongoose.Schema<adminPayment>({
-  amount: {
-    type: Number,
+const adminPaymentSchema = new mongoose.Schema<adminPayment>(
+  {
+    amount: {
+      type: Number,
+    },
+    date: {
+      type: String,
+    },
+    viewSender: {
+      type: String,
+    },
   },
-  date: {
-    type: String,
-  },
-  viewSender: {
-    type: String,
-  },
-});
+  { timestamps: true }
+);
 
 const adminPaymentModel = mongoose.model(
   "adminpaymentLogCollection",

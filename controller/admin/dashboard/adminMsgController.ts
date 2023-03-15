@@ -69,18 +69,24 @@ export const populateMsg = async (req: Request, res: Response) => {
   try {
     const getMessages = await adminDashboardModel
       .findById(req.params.dashBoardId)
-      .populate({
-        path: "message",
-      });
+      .populate([
+        {
+          path: "message",
+        },
+        {
+          path: "bills",
+        },
+      ]);
 
     return res.status(200).json({
       message: "messages successfully retrieved",
       data: getMessages,
     });
-  } catch (error) {
+  } catch (error: any) {
     return res.status(400).json({
       message: "bad request , unable to get message",
       data: error,
+      msg: error.message,
     });
   }
 };

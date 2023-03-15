@@ -44,6 +44,11 @@ export const createBills = async (
       );
       getClientDashboard?.save();
 
+      getAdminDashboard?.bills?.push(
+        new mongoose.Types.ObjectId(postBills?._id)
+      );
+      getAdminDashboard?.save();
+
       return res.status(200).json({
         message: "bill sent successfully",
         data: postBills,
