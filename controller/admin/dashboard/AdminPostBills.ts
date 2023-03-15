@@ -39,14 +39,14 @@ export const createBills = async (
         amountIssued,
       });
 
-      // getClientDashboard?.bills?.push(
-      //   new mongoose.Types.ObjectId(postBills?._id)
-      // );
-      // getClientDashboard?.save();
+      getClientDashboard?.bills?.push(
+        new mongoose.Types.ObjectId(postBills?._id)
+      );
+      getClientDashboard?.save();
 
-      await clientDashBoardModel.findByIdAndUpdate(getClientDashboard?._id, {
-        $push: { bills: postBills?._id },
-      });
+      // await clientDashBoardModel.findByIdAndUpdate(getClientDashboard?._id, {
+      //   $push: { bills: postBills?._id },
+      // });
 
       getAdminDashboard?.bills?.push(
         new mongoose.Types.ObjectId(postBills?._id)

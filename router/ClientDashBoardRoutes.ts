@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { getAllBills } from "../controller/client/AllDashboardLogics/genBills";
 import {
   getMessages,
   sendMessage,
@@ -23,5 +24,6 @@ clientDashBoardRoutes.post(
 );
 
 clientDashBoardRoutes.get("/getclientmessage/:clientId", getMessages);
+clientDashBoardRoutes.get("getyourbills/:clientBillId", getAllBills);
 
 export default clientDashBoardRoutes;
